@@ -229,8 +229,8 @@ print("VIDEO : ", v)
 #os.system(f"ffmpeg -http_persistent 0 -re -i '{pr}' -threads 4 -vf \"format=yuv420p\" -c:v libx264 -g 48 -b:v 9000k -c:a copy -preset ultrafast -tune zerolatency -f flv rtmp://a.rtmp.youtube.com/live2/gkjq-gc2k-hbcc-3jwq-9pp6")
 
 
-os.system(f"ffmpeg -http_persistent 0 -ss 00:00:00 -to 10:25:00 -re -i '{pr}' -map 0:p:5 -c:v libx264 -c:a aac -preset ultrafast -tune zerolatency -f flv rtmp://a.rtmp.youtube.com/live2/43ys-88cy-7e3t-khew-3csa")
+os.system(f"ffmpeg -http_persistent 0 -ss 00:00:10 -re -i '{pr}' -map 0:p:5 -c:v libx264 -c:a aac -preset ultrafast -tune zerolatency -f flv rtmp://a.rtmp.youtube.com/live2/zvmf-1yjp-jzek-01pw-b4js")
 
 
 
-#os.system(f"ffmpeg -http_persistent 0 -ss 00:00:00 -re -i '{pr}' -threads 4 -vcodec copy -c:a copy -preset ultrafast -tune zerolatency -f flv rtmp://a.rtmp.youtube.com/live2/u151-yfj5-6g19-c006-a0js")
+#os.system(f"ffmpeg -http_persistent 0 -ss 00:00:10 -re -i '{pr}' -threads 4 -vcodec copy -c:a copy -preset ultrafast -tune zerolatency -f flv rtmp://a.rtmp.youtube.com/live2/u151-yfj5-6g19-c006-a0js")
