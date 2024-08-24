@@ -29,7 +29,7 @@ cookies = {
 }
 
 headers = {
-    'referer': 'https://www.youtube.com/watch?v=Vta45K0Eoo',
+    'referer': 'https://www.youtube.com/watch?v=c43c72StqyU',
     'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Safari/605.1.15',
     'x-goog-visitor-id': 'CgtKR01Ha294bFUxVSjmof61BjIKCgJJThIEGgAgUQ%3D%3D',
     'x-goog-authuser': '0',
@@ -65,7 +65,7 @@ json_data = {
             'clientVersion': '2.20240816.01.00',
             'osName': 'Macintosh',
             'osVersion': '10_15_7',
-            'originalUrl': 'https://www.youtube.com/watch?v=Vta45K0Eoo',
+            'originalUrl': 'https://www.youtube.com/watch?v=c43c72StqyU',
             'screenPixelDensity': 2,
             'platform': 'DESKTOP',
             'clientFormFactor': 'UNKNOWN_FORM_FACTOR',
@@ -84,7 +84,7 @@ json_data = {
             'utcOffsetMinutes': 330,
             'clientScreen': 'WATCH',
             'mainAppWebInfo': {
-                'graftUrl': '/watch?v=Vta45K0Eoo',
+                'graftUrl': '/watch?v=c43c72StqyU',
                 'webDisplayMode': 'WEB_DISPLAY_MODE_BROWSER',
                 'isWebNativeShareAvailable': True,
             },
@@ -173,17 +173,17 @@ json_data = {
             ],
         },
     },
-    'videoId': 'VVta45K0Eoo',
+    'videoId': 'c43c72StqyU',
     'playbackContext': {
         'contentPlaybackContext': {
-            'currentUrl': '/watch?v=Vta45K0Eoo',
+            'currentUrl': '/watch?v=c43c72StqyU',
             'vis': 0,
             'splay': False,
             'autoCaptionsDefaultOn': False,
             'autonavState': 'STATE_NONE',
             'html5Preference': 'HTML5_PREF_WANTS',
             'signatureTimestamp': 19949,
-            'referer': 'https://www.youtube.com/watch?v=Vta45K0Eoo',
+            'referer': 'https://www.youtube.com/watch?v=c43c72StqyU',
             'lactMilliseconds': '-1',
             'watchAmbientModeContext': {
                 'hasShownAmbientMode': True,
@@ -206,31 +206,12 @@ pr = json.loads(response.text)["streamingData"]["hlsManifestUrl"]
 print(pr)
 
 
-#pr = response.json()['streamingData']["adaptiveFormats"]
-#pr = json.loads(response.text)["streamingData"]["hlsManifestUrl"]
-#print(response.text)
-"""
-l = []
-for __ in pr:
-    if "1080p" in str(__) and "mp4" in str(__):
-        l.append(__)
-    if "AUDIO_QUALITY_MEDIUM" in str(__) and not 'isDrc' in str(__):
-        l.append(__)
-
-
-#print(l)
-v = l[0]['url']
-##print(v)
-a = l[-1]['url']
-print("AUDIO : ", a)
-print("VIDEO : ", v)
-"""
 #https://youtu.be/jTx5GetgC-M
 #os.system(f"ffmpeg -http_persistent 0 -re -i '{pr}' -threads 4 -vf \"format=yuv420p\" -c:v libx264 -g 48 -b:v 9000k -c:a copy -preset ultrafast -tune zerolatency -f flv rtmp://a.rtmp.youtube.com/live2/gkjq-gc2k-hbcc-3jwq-9pp6")
 
 
-os.system(f"ffmpeg -http_persistent 0 -ss 5:00:00 -re -i '{pr}' -map 0:p:5 -c:v libx264 -c:a aac -preset ultrafast -tune zerolatency -f flv rtmp://a.rtmp.youtube.com/live2/43ys-88cy-7e3t-khew-3csa")
+os.system(f"ffmpeg -http_persistent 0 -ss 00:00:00 -re -i '{pr}' -map 0:p:3 -c:v libx264 -c:a aac -preset ultrafast -tune zerolatency -f flv rtmp://a.rtmp.youtube.com/live2/43ys-88cy-7e3t-khew-3csa")
 
 
 
-#os.system(f"ffmpeg -http_persistent 0 -ss 5:00:00 -re -i '{pr}' -threads 4 -vcodec copy -c:a copy -preset ultrafast -tune zerolatency -f flv rtmp://a.rtmp.youtube.com/live2/u151-yfj5-6g19-c006-a0js")
+#os.system(f"ffmpeg -http_persistent 0 -ss 00:00:00 -re -i '{pr}' -threads 4 -vcodec copy -c:a copy -preset ultrafast -tune zerolatency -f flv rtmp://a.rtmp.youtube.com/live2/u151-yfj5-6g19-c006-a0js")
