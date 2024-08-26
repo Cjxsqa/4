@@ -173,17 +173,17 @@ json_data = {
             ],
         },
     },
-    'videoId': 'c43c72StqyU',
+    'videoId': '7MASewMnUiU',
     'playbackContext': {
         'contentPlaybackContext': {
-            'currentUrl': '/watch?v=c43c72StqyU',
+            'currentUrl': '/watch?v=7MASewMnUiU',
             'vis': 0,
             'splay': False,
             'autoCaptionsDefaultOn': False,
             'autonavState': 'STATE_NONE',
             'html5Preference': 'HTML5_PREF_WANTS',
             'signatureTimestamp': 19949,
-            'referer': 'https://www.youtube.com/watch?v=c43c72StqyU',
+            'referer': 'https://www.youtube.com/watch?v=7MASewMnUiU',
             'lactMilliseconds': '-1',
             'watchAmbientModeContext': {
                 'hasShownAmbientMode': True,
@@ -203,15 +203,15 @@ response = requests.post(
     json=json_data,
 )
 pr = json.loads(response.text)["streamingData"]["hlsManifestUrl"]
-print(pr)
-
+#print(pr)
+print(response.text)
 
 #https://youtu.be/jTx5GetgC-M
 #os.system(f"ffmpeg -http_persistent 0 -re -i '{pr}' -threads 4 -vf \"format=yuv420p\" -c:v libx264 -g 48 -b:v 9000k -c:a copy -preset ultrafast -tune zerolatency -f flv rtmp://a.rtmp.youtube.com/live2/gkjq-gc2k-hbcc-3jwq-9pp6")
 
 
-os.system(f"ffmpeg -http_persistent 0 -ss 05:59:00 -re -i '{pr}' -c:v libx264 -c:a aac -g 48 -preset ultrafast -tune zerolatency -f flv rtmp://a.rtmp.youtube.com/live2/43ys-88cy-7e3t-khew-3csa")
+os.system(f"ffmpeg -http_persistent 0 -ss 00:00:00 -re -i '{pr}' -c:v libx264 -c:a aac -g 48 -preset ultrafast -tune zerolatency -f flv rtmp://a.rtmp.youtube.com/live2/vt1b-fcp2-3u15-927x-9s3j")
 
 
 
-#os.system(f"ffmpeg -http_persistent 0 -ss 5:00:00 -re -i '{pr}' -threads 4 -vcodec copy -c:a copy -preset ultrafast -tune zerolatency -f flv rtmp://a.rtmp.youtube.com/live2/u151-yfj5-6g19-c006-a0js")
+#os.system(f"ffmpeg -http_persistent 0 -ss 00:00:00 -re -i '{pr}' -threads 4 -vcodec copy -c:a copy -preset ultrafast -tune zerolatency -f flv rtmp://a.rtmp.youtube.com/live2/u151-yfj5-6g19-c006-a0js")
