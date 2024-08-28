@@ -210,7 +210,7 @@ print(response.text)
 #os.system(f"ffmpeg -http_persistent 0 -re -i '{pr}' -threads 4 -vf \"format=yuv420p\" -c:v libx264 -g 48 -b:v 9000k -c:a copy -preset ultrafast -tune zerolatency -f flv rtmp://a.rtmp.youtube.com/live2/gkjq-gc2k-hbcc-3jwq-9pp6")
 
 
-os.system(f"ffmpeg -http_persistent 0 -ss 00:00:00 -re -i '{pr}' -map 0:p:3 -vf \"format=yuv420p,movie=bunny4.png[watermark];[watermark]scale=iw/1.7:ih/1.7[watermark_scaled];[in][watermark_scaled]overlay=main_w-overlay_w-5:main_h-overlay_h-5\" -c:v libx264 -c:a copy -g 48 -preset ultrafast -tune zerolatency -f flv rtmp://a.rtmp.youtube.com/live2/zvmf-1yjp-jzek-01pw-b4js")
+os.system(f"ffmpeg -http_persistent 0 -ss 00:00:00 -re -i '{pr}' -bufsize 100M -map 0:p:3 -vf \"format=yuv420p,movie=bunny4.png[watermark];[watermark]scale=iw/1.7:ih/1.7[watermark_scaled];[in][watermark_scaled]overlay=main_w-overlay_w-5:main_h-overlay_h-5\" -c:v libx264 -c:a copy -g 48 -preset ultrafast -tune zerolatency -f flv rtmp://a.rtmp.youtube.com/live2/zvmf-1yjp-jzek-01pw-b4js")
 
 
 
