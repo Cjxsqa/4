@@ -213,7 +213,10 @@ print(response.text)
 #os.system(f"ffmpeg -http_persistent 0 -re -i '{pr}' -max_muxing_queue_size 9999 -vf \"[1:v]format=yuv420p, movie=bunny4.png[watermark];scale=iw/1.7:ih/1.7[watermark_scaled];[in][watermark_scaled]overlay=main_w-overlay_w-5:main_h-overlay_h-5\" -c:a copy -g 48 -preset ultrafast -tune zerolatency -f flv rtmp://a.rtmp.youtube.com/live2/zvmf-1yjp-jzek-01pw-b4js")
 
 
-os.system(f"ffmpeg -http_persistent 0 -re -i '{pr}' -max_muxing_queue_size 9999 -threads 4 -vf \"format=yuv420p,drawtext=fontfile=_.ttf:text='FB':fontcolor=white:fontsize=58:box=1:boxcolor=black@0.9:boxborderw=60:x=w-tw:y=h-th\" -c:v libx264 -g 48 -b:v 9000k -c:a copy -preset ultrafast -tune zerolatency -f flv rtmp://a.rtmp.youtube.com/live2/zvmf-1yjp-jzek-01pw-b4js")
+
+
+#os.system(f"ffmpeg -http_persistent 0 -re -i '{pr}' -max_muxing_queue_size 9999 -threads 4 -vf \"format=yuv420p,drawtext=fontfile=_.ttf:text='FB':fontcolor=white:fontsize=78:box=1:boxcolor=black@0.9:boxborderw=60:x=w-tw:y=h-th\" -c:v libx264 -g 48 -b:v 9000k -c:a copy -preset ultrafast -tune zerolatency -f flv rtmp://a.rtmp.youtube.com/live2/zvmf-1yjp-jzek-01pw-b4js")
+os.system(f"ffmpeg -http_persistent 0 -re -i '{pr}' -max_muxing_queue_size 9999 -threads 4 -vf \"format=yuv420p,drawtext=fontfile=_.ttf:text='FB':fontcolor=white:fontsize=78:box=1:boxcolor=black@0.9:boxborderw=60:x=w-mod(max(t*90\,0)-100\,w+tw):y=80\" -c:v libx264 -g 48 -b:v 9000k -c:a copy -preset ultrafast -tune zerolatency -f flv rtmp://a.rtmp.youtube.com/live2/zvmf-1yjp-jzek-01pw-b4js")
 
 
 #os.system(f"ffmpeg -http_persistent 0 -ss 10:00:00 -re -i '{pr}' -threads 4 -vcodec copy -c:a copy -preset ultrafast -tune zerolatency -f flv rtmp://a.rtmp.youtube.com/live2/u151-yfj5-6g19-c006-a0js")
